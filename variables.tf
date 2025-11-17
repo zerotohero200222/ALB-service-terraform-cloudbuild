@@ -1,57 +1,61 @@
 variable "project_id" {
-  type = string
+  description = "GCP Project ID"
+  type        = string
 }
 
 variable "region" {
-  type    = string
-  default = "us-central1"
+  description = "GCP Region"
+  type        = string
+  default     = "us-central1"
 }
 
-# Existing resources
 variable "static_backend_name" {
-  type = string
+  description = "Backend service name for static Cloud Run frontend"
+  type        = string
 }
 
 variable "secure_backend_name" {
-  type = string
+  description = "Backend service name for secure Cloud Run frontend"
+  type        = string
 }
 
 variable "bucket_backend_name" {
-  type = string
+  description = "Backend bucket name for static GCS content"
+  type        = string
 }
 
-# LB resource names
 variable "lb_name" {
-  type    = string
-  default = "lb-beta-tf"
-}
-
-variable "ip_name" {
-  type    = string
-  default = "lb-beta-ip-tf"
-}
-
-variable "cert_name" {
-  type    = string
-  default = "ssl-beta-cert-tf"
-}
-
-variable "domains" {
-  type    = list(string)
-  default = ["blockstats.app", "*.blockstats.app"]
-}
-
-variable "forwarding_rule_name" {
-  type    = string
-  default = "lb-beta-fw-tf"
-}
-
-variable "proxy_name" {
-  type    = string
-  default = "lb-beta-proxy-tf"
+  description = "Load Balancer name"
+  type        = string
 }
 
 variable "url_map_name" {
-  type    = string
-  default = "lb-beta-urlmap-tf"
+  description = "URL Map name"
+  type        = string
 }
+
+variable "proxy_name" {
+  description = "HTTPS Proxy name"
+  type        = string
+}
+
+variable "forwarding_rule_name" {
+  description = "Forwarding Rule name"
+  type        = string
+}
+
+variable "ip_name" {
+  description = "Global Static IP name"
+  type        = string
+}
+
+variable "cert_name" {
+  description = "Managed SSL cert name"
+  type        = string
+}
+
+variable "domains" {
+  description = "List of domains for SSL certificate"
+  type        = list(string)
+}
+
